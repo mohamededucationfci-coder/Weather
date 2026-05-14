@@ -15,8 +15,21 @@ getSpan.onclick = function () {
 };
 
 let getToggleElement = document.querySelector(".toggle");
-if (window.localStorage.getItem("theme") === "dark") {
+if (
+  window.localStorage.getItem("theme") === "dark" &&
+  window.localStorage.getItem("background") === "white"
+) {
   document.body.classList.add("dark");
+  getToggleElement.children[1].style.cssText =
+    "background-color: white ; border-radius: 20px";
+  getToggleElement.children[0].style.cssText =
+    "background-color: transparent ; border-radius: 20px ; ";
+} else {
+  getToggleElement.children[1].style.cssText =
+    "background-color: transparent ; border-radius: 50%";
+  getToggleElement.children[0].style.cssText =
+    "background-color: #4f378a ; border-radius: 50% ;";
+  getToggleElement.children[0].children[0].style.cssText = "color: white";
 }
 getToggleElement.onclick = function () {
   document.body.classList.toggle("dark");
@@ -26,6 +39,7 @@ getToggleElement.onclick = function () {
     getToggleElement.children[0].style.cssText =
       "background-color: transparent ; border-radius: 20px ; ";
     localStorage.setItem("theme", "dark");
+    localStorage.setItem("background", "white");
   } else {
     getToggleElement.children[1].style.cssText =
       "background-color: transparent ; border-radius: 50%";
@@ -33,6 +47,7 @@ getToggleElement.onclick = function () {
       "background-color: #4f378a ; border-radius: 50% ;";
     getToggleElement.children[0].children[0].style.cssText = "color: white";
     localStorage.setItem("theme", "white");
+    localStorage.setItem("background-color", "#4f378a");
   }
 };
 let getCityElement = document.querySelector(".city-country");
