@@ -85,12 +85,11 @@ header .hero .toggle > div {
 }
 
 header .hero .toggle > div:first-child {
-  background-color: var(--main-color);
   color: var(--secondary-backgroundColor);
   border-radius: 20px;
 }
 
-header .hero .toggle > div:last-child {
+header .hero .toggle > div i {
   color: #4f378a;
 }
 header .hero img {
@@ -348,7 +347,7 @@ main > .temp-week > .statistics > .schedule {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
-  color: var(--color-font) ;
+  color: var(--color-font);
 }
 
 main > .temp-week > .statistics > .humidity {
@@ -583,7 +582,7 @@ footer {
   justify-content: space-between;
   align-content: space-between;
   color: var(--color-font);
-  text-align: center ;
+  text-align: center;
 }
 
 footer > .sec-one {

@@ -20,11 +20,19 @@ if (window.localStorage.getItem("theme") === "dark") {
 }
 getToggleElement.onclick = function () {
   document.body.classList.toggle("dark");
-  if(document.body.classList.contains("dark")){
-    localStorage.setItem("theme","dark")
-  }else {
-        localStorage.setItem("theme","white")
-
+  if (document.body.classList.contains("dark")) {
+    getToggleElement.children[1].style.cssText =
+      "background-color: white ; border-radius: 20px";
+    getToggleElement.children[0].style.cssText =
+      "background-color: transparent ; border-radius: 20px ; ";
+    localStorage.setItem("theme", "dark");
+  } else {
+    getToggleElement.children[1].style.cssText =
+      "background-color: transparent ; border-radius: 50%";
+    getToggleElement.children[0].style.cssText =
+      "background-color: #4f378a ; border-radius: 50% ;";
+    getToggleElement.children[0].children[0].style.cssText = "color: white";
+    localStorage.setItem("theme", "white");
   }
 };
 let getCityElement = document.querySelector(".city-country");
@@ -59,7 +67,7 @@ async function fetchWeatherData() {
       `https://api.weatherapi.com/v1/forecast.json?key=40dacc026d874cc1b46231019260805&q=Cairo&days=7`,
     );
     const data = await fetchData.json();
-
+    document.images[0].src = "https:" + data.current.condition.icon;
     ((getCityElement.innerHTML = ` ${data.location.name}, ${data.location.country}`),
       (getTemperatureElement.innerHTML =
         Math.trunc(data.current.temp_c) + `<span>°C</span>`));
