@@ -291,6 +291,7 @@ main > .temp-week {
 main > .temp-week > .day-forecast {
   width: 310px;
   height: auto;
+  margin-bottom: 8px;
 }
 
 main > .temp-week > .day-forecast > .head {
