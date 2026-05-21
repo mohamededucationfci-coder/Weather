@@ -299,16 +299,17 @@ async function fetchWeatherData() {
     getWindElement.appendChild(createSpeedOfWind);
     getWindElement.appendChild(createDetailsOfWindSpeed);
     getSunRiseElement.innerHTML =
-      data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
+    data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
     getSunSetElement.innerHTML =
-      data.forecast.forecastday[0].astro.sunset.split(" ")[0];
+    data.forecast.forecastday[0].astro.sunset.split(" ")[0];
     getMoonRiseElement.innerHTML =
-      data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
+    data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
     getMoonSetElement.innerHTML =
-      data.forecast.forecastday[0].astro.moonset.split(" ")[0];
+    data.forecast.forecastday[0].astro.moonset.split(" ")[0];
     let year = new Date().getFullYear();
     getYearSpan.innerHTML = year;
   } catch (e) {
+    console.log( data.forecast.forecastday)
     alert("Failed to load weather data");
   }
 }
@@ -329,3 +330,4 @@ hiddenElements.forEach((ele) => {
 });
 fetchWeatherData();
 setInterval(fetchWeatherData, 300000);
+
