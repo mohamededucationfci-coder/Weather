@@ -309,7 +309,6 @@ async function fetchWeatherData() {
     let year = new Date().getFullYear();
     getYearSpan.innerHTML = year;
   } catch (e) {
-    console.log( data.forecast.forecastday)
     alert("Failed to load weather data");
   }
 }
@@ -323,7 +322,7 @@ const observe = new IntersectionObserver((entreis) => {
       entry.target.classList.remove("show");
     }
   });
-});
+}); 
 
 hiddenElements.forEach((ele) => {
   observe.observe(ele);
