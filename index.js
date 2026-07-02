@@ -70,6 +70,11 @@ let getSunSetElement = document.querySelector(".sunset");
 let getMoonSetElement = document.querySelector(".moonset");
 let getYearSpan = document.querySelector(".year");
 let getDirElement = document.querySelector(".direction-wind");
+const getElementBlur = document.querySelector(".load");
+
+window.onload = function () {
+  getElementBlur.style.display = "none";
+};
 async function fetchWeatherData() {
   getForecastElement.innerHTML = "";
   getCityElement.innerHTML = "";
@@ -299,13 +304,13 @@ async function fetchWeatherData() {
     getWindElement.appendChild(createSpeedOfWind);
     getWindElement.appendChild(createDetailsOfWindSpeed);
     getSunRiseElement.innerHTML =
-    data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
+      data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
     getSunSetElement.innerHTML =
-    data.forecast.forecastday[0].astro.sunset.split(" ")[0];
+      data.forecast.forecastday[0].astro.sunset.split(" ")[0];
     getMoonRiseElement.innerHTML =
-    data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
+      data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
     getMoonSetElement.innerHTML =
-    data.forecast.forecastday[0].astro.moonset.split(" ")[0];
+      data.forecast.forecastday[0].astro.moonset.split(" ")[0];
     let year = new Date().getFullYear();
     getYearSpan.innerHTML = year;
   } catch (e) {
@@ -322,11 +327,10 @@ const observe = new IntersectionObserver((entreis) => {
       entry.target.classList.remove("show");
     }
   });
-}); 
+});
 
 hiddenElements.forEach((ele) => {
   observe.observe(ele);
 });
 fetchWeatherData();
 setInterval(fetchWeatherData, 300000);
-

@@ -26,6 +26,37 @@ body.dark {
   --color-border: rgb(39, 39, 39);
 }
 
+.load {
+  width: 100vw;
+  height: 100vh;
+  z-index: 555555;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #e0eeff;
+  opacity: 0.9;
+}
+
+.load > span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 5px dotted #4f378a;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  opacity: .5;
+  animation: spanning 2s linear 0s infinite normal;
+}
+
+@keyframes spanning {
+  to {
+    transform-origin: center center;
+    transform: rotate(360deg);
+  }
+}
+
 body {
   background-color: var(--main-backgroundColor);
   height: auto;
