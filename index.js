@@ -94,9 +94,11 @@ async function fetchWeatherData() {
     document.images[1].src = "https:" + data.current.condition.icon;
     document.images[1].loading = "lazy";
     document.images[1].alt = "This Is Icon Of Weather";
-    getHumidityPercentElement.innerHTML = data.current.humidity + `%`;
-    getWindSpeedElement.innerHTML = data.current.wind_kph + ` Km/h`;
-    getVisibilityDistanceElement.innerHTML = data.current.vis_km + `Km`;
+    getHumidityPercentElement.innerHTML =
+      data.current.humidity + `<div>%</div>`;
+    getWindSpeedElement.innerHTML = data.current.wind_kph + ` <div>Km/h</div>`;
+    getVisibilityDistanceElement.innerHTML =
+      data.current.vis_km + `<div>Km</div>`;
     let state;
     if (data.current.uv >= 0 && data.current.uv <= 2) {
       state = "Safe";
@@ -109,7 +111,7 @@ async function fetchWeatherData() {
     } else {
       state = "Extreme";
     }
-    getUVIndexElement.innerHTML = data.current.uv + `(${state})`;
+    getUVIndexElement.innerHTML = data.current.uv + `<div>${state}<div/>`;
     for (let i = 0; i < data.forecast.forecastday["0"].hour.length; i++) {
       let createParentElement = document.createElement("div");
       let createElementOfHour = document.createElement("div");
@@ -159,7 +161,7 @@ async function fetchWeatherData() {
       createElementimg.loading = "lazy";
       createElementimg.alt = "This Is Icon Of Temp";
       createElementIndicator.style.cssText =
-        "width: 120px; height: 4px; border-radius: 8px;background-color: #dfdddfef; position:relative";
+        "width: 300px ;height: 6px; border-radius: 8px;background-color: #dfdddfef; position:relative";
       let min = data.forecast.forecastday[i].day.mintemp_c;
       let max = data.forecast.forecastday[i].day.maxtemp_c;
 
@@ -197,9 +199,9 @@ async function fetchWeatherData() {
       data.forecast.forecastday[0].day.avghumidity + "%";
 
     createAvghumidityElement.style.cssText = `
-      width: 294px;
+      width: 100%;
       height: 12px;
-      background-color: #bea5d78f;
+      background-color: #2200458f;
       border-radius: 8px;
       position: relative;
       display: flex;
@@ -260,8 +262,9 @@ async function fetchWeatherData() {
 
     createUvValue.innerHTML = `${Math.trunc(data.forecast.forecastday["0"].day.uv)} ${stateUV}`;
     createUvInfo.innerHTML = `Use sun protection until ${data.forecast.forecastday["0"].astro.sunset}`;
+    createUvInfo.classList.add("sec-three-uv");
     createUvIndicator.style.cssText = `
-      width: 264px;
+      width: 100%;
       height: 12px;
       background-image: linear-gradient(to right, green, yellow, red);
       border-radius: 8px;
