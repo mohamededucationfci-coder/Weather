@@ -117,7 +117,7 @@ header .hero .toggle > div {
 
 header .hero .toggle > div:first-child {
   color: var(--secondary-backgroundColor);
-  border-radius: 20px;
+  border-radius: 19px;
 }
 
 header .hero .toggle > div i {
