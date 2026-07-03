@@ -337,3 +337,8 @@ hiddenElements.forEach((ele) => {
 });
 fetchWeatherData();
 setInterval(fetchWeatherData, 300000);
+document.querySelectorAll("*").forEach(el => {
+  if (el.getBoundingClientRect().right > window.innerWidth) {
+    console.log(el);
+  }
+});
