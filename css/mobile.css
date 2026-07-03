@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   transition-duration: 0.8s;
 }
@@ -156,7 +158,8 @@ main {
 
 main > .temp-today {
   background-color: var(--backgroundColor);
-  min-width: 310px;
+  width: 100%;
+  max-width: 440px;
   height: 488px;
   padding: 40px;
   margin-top: 24px;
@@ -169,14 +172,14 @@ main > .temp-today {
 }
 
 main > .temp-today > :first-child {
-  min-width: 163px;
+  width: 80%;
   height: 180px;
   color: var(--main-color);
   text-align: center;
 }
 
 main > .temp-today > :first-child .city {
-  width: 160px;
+  width: fit-content;
   height: 28px;
   font-size: 24px;
   font-weight: bold;
@@ -193,7 +196,7 @@ main > .temp-today > :first-child .city i {
 
 main > .temp-today > :first-child .temperature {
   font-family: "Inter", sans-serif;
-  width: 135px;
+  width: fit-content;
   height: 96px;
   font-size: 96px;
   font-weight: bold;
@@ -211,6 +214,7 @@ main > .temp-today > :first-child .temperature span {
 
 main > .temp-today > :nth-child(2) {
   width: 100%;
+  max-width: 360px;
   height: 88px;
   display: flex;
   justify-content: center;
@@ -225,7 +229,8 @@ main > .temp-today > :nth-child(2) img {
 
 main > .temp-today > .temp-info {
   background-color: var(--backgroundColorOdInfo);
-  min-width: 310px;
+  min-width: 100%;
+  max-width: 360px;
   height: 120px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
