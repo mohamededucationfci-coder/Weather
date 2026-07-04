@@ -161,7 +161,7 @@ async function fetchWeatherData() {
       createElementimg.loading = "lazy";
       createElementimg.alt = "This Is Icon Of Temp";
       createElementIndicator.style.cssText =
-        "width: 300px ;height: 6px; border-radius: 8px;background-color: #dfdddfef; position:relative";
+        "width: calc(100% - 120px); ;height: 6px; border-radius: 8px;background-color: #dfdddfef; position:relative";
       let min = data.forecast.forecastday[i].day.mintemp_c;
       let max = data.forecast.forecastday[i].day.maxtemp_c;
 
@@ -230,7 +230,7 @@ async function fetchWeatherData() {
     getHumiditysTwoElement.appendChild(createAvghumidityElement);
     getHumiditysTwoElement.appendChild(createAvghumidityInfo);
     getHumiditysThreeElement.innerHTML = `The dew point is ${Math.trunc(data.current.dewpoint_c)}° right now`;
-
+    getHumiditysThreeElement.style.cssText = "width: 100% ; text-align: center";
     let createUvValue = document.createElement("div");
     let createUvIndicator = document.createElement("div");
     let createUvIndicatorChild = document.createElement("div");
@@ -262,6 +262,7 @@ async function fetchWeatherData() {
 
     createUvValue.innerHTML = `${Math.trunc(data.forecast.forecastday["0"].day.uv)} ${stateUV}`;
     createUvInfo.innerHTML = `Use sun protection until ${data.forecast.forecastday["0"].astro.sunset}`;
+    
     createUvInfo.classList.add("sec-three-uv");
     createUvIndicator.style.cssText = `
       width: 100%;
@@ -337,7 +338,7 @@ hiddenElements.forEach((ele) => {
 });
 fetchWeatherData();
 setInterval(fetchWeatherData, 300000);
-document.querySelectorAll("*").forEach(el => {
+document.querySelectorAll("*").forEach((el) => {
   if (el.getBoundingClientRect().right > window.innerWidth) {
     console.log(el);
   }
