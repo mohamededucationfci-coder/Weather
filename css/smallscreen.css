@@ -1,132 +1,11 @@
-* {
-  padding: 0;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  transition-duration: 0.8s;
-}
-
-:root {
-  --main-backgroundColor: #f7f5f8ef;
-  --secondary-backgroundColor: white;
-  --backgroundColor: #e0eeff;
-  --backgroundColorOdInfo: #ffffff;
-  --main-color: #4f378a;
-  --color-font: rgb(0, 0, 0);
-  --color-border: rgb(232, 232, 232);
-}
-
-body.dark {
-  --main-backgroundColor: #040813;
-  --secondary-backgroundColor: #131b345e;
-  --backgroundColor: #131b345e;
-  --backgroundColorOdInfo: #2f3444;
-  --main-color: white;
-  --color-font: white;
-  --color-border: rgb(39, 39, 39);
-}
-
-.load {
-  width: 100%;
-  height: 100%;
-  z-index: 555555;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #e0eeff;
-  opacity: 0.9;
-}
-
-.load > span {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 5px dotted #4f378a;
-  position: absolute;
-  top: calc(50% - 15px);
-  left: calc(50% - 15px);
-  opacity: 0.5;
-  animation: spanning 2s linear 0s infinite normal;
-}
-
-@keyframes spanning {
-  to {
-    transform-origin: center center;
-    transform: rotate(360deg);
-  }
-}
-
 body {
   background-color: var(--main-backgroundColor);
   height: auto;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 60px auto auto;
+  grid-template-rows: 60px 1fr auto;
   grid-template-areas: "header" "main" "footer";
   justify-content: space-between;
-}
-
-header {
-  grid-area: header;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-  box-shadow: 0 -2px 5px 2px #cbc4d2;
-  background-color: var(--secondary-backgroundColor);
-}
-
-header > .name {
-  color: var(--main-color);
-  width: 103px;
-  height: 34px;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 34px;
-}
-
-header > .hero {
-  width: 148.28px;
-  height: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .hero .toggle {
-  background-color: var(--main-backgroundColor);
-  width: 70px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 20px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-header .hero .toggle > div {
-  width: 35px;
-  height: 30px;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 30px;
-  text-align: center;
-}
-
-header .hero .toggle > div:first-child {
-  color: var(--secondary-backgroundColor);
-  border-radius: 20px;
-}
-
-header .hero .toggle > div i {
-  color: #4f378a;
-}
-header .hero img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
 }
 
 /*                                      */
@@ -191,7 +70,7 @@ main > .temp-today > :first-child .city i {
 }
 
 main > .temp-today > :first-child .temperature {
-  font-family: "Playfair Display", serif;
+  font-family: "DM Sans", sans-serif;
   width: 100%;
   height: 96px;
   font-size: 96px;
@@ -203,9 +82,11 @@ main > .temp-today > :first-child .temperature {
 
 main > .temp-today > :first-child .temperature::first-letter,
 main > .temp-today > :first-child .temperature span {
-  font-family: "Playfair Display", serif;
-  font-size: 64px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 40px;
   font-weight: 600;
+  display: flex;
+  align-items: end;
 }
 
 main > .temp-today > :first-child .temperature span {
@@ -221,10 +102,10 @@ main > .temp-today > :nth-child(2) {
 }
 
 main > .temp-today > :nth-child(2) img {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   position: absolute;
-  bottom: 80%;
+  bottom: 65%;
   display: grid;
   place-items: center;
 }
@@ -329,10 +210,9 @@ main > .temp-week {
 main > .temp-week > .day-forecast {
   width: 100%;
   height: auto;
-  margin-bottom: 8px;
 }
 
-main > .temp-week > .day-forecast > .head {
+main > .temp-week >  .head {
   width: 100%;
   height: 34px;
   font-size: 24px;
@@ -364,21 +244,13 @@ main > .temp-week > .day-forecast > .day-details > div > img {
   height: 20px;
 }
 
-main > .temp-week > .statistics {
-  width: 100%;
-  height: 1222px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
-}
-
-main > .temp-week > .statistics > .humidity,
-main > .temp-week > .statistics > .uv-index,
-main > .temp-week > .statistics > .wind,
-main > .temp-week > .statistics > .schedule {
+main > .temp-week > .humidity,
+main > .temp-week > .uv-index,
+main > .temp-week > .wind,
+main > .temp-week > .schedule {
   background-color: var(--secondary-backgroundColor);
   width: 100%;
+  height: auto;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 32px;
@@ -388,15 +260,16 @@ main > .temp-week > .statistics > .schedule {
   color: var(--color-font);
 }
 
-main > .temp-week > .statistics > .humidity {
+main > .temp-week > .humidity {
   height: 239px;
+  margin: 10px 0;
 }
 
-main > .temp-week > .statistics > .humidity > .sec-one-humidity,
-main > .temp-week > .statistics > .uv-index > .sec-one-uv,
-main > .temp-week > .statistics .sun,
-main > .temp-week > .statistics .moon,
-main > .temp-week > .statistics > .wind > .sec-one-wind {
+main > .temp-week > .humidity > .sec-one-humidity,
+main > .temp-week > .uv-index > .sec-one-uv,
+main > .temp-week .sun,
+main > .temp-week .moon,
+main > .temp-week > .wind > .sec-one-wind {
   width: 100%;
   height: 24px;
   display: flex;
@@ -404,15 +277,15 @@ main > .temp-week > .statistics > .wind > .sec-one-wind {
   align-items: start;
 }
 
-main > .temp-week > .statistics > .humidity > .sec-one-humidity i {
+main > .temp-week > .humidity > .sec-one-humidity i {
   color: blue;
 }
 
-main > .temp-week > .statistics > .uv-index > .sec-one-uv > i {
+main > .temp-week > .uv-index > .sec-one-uv > i {
   color: #f4b400;
 }
 
-main > .temp-week > .statistics > .humidity > .sec-two-humidity {
+main > .temp-week > .humidity > .sec-two-humidity {
   width: 100%;
   height: 80px;
   display: flex;
@@ -421,11 +294,11 @@ main > .temp-week > .statistics > .humidity > .sec-two-humidity {
   align-content: space-evenly;
 }
 
-main > .temp-week > .statistics > .uv-index {
+main > .temp-week > .uv-index {
   height: 245px;
 }
 
-main > .temp-week > .statistics > .uv-index > .sec-two-uv {
+main > .temp-week > .uv-index > .sec-two-uv {
   width: 100%;
   height: 123px;
   display: flex;
@@ -433,7 +306,7 @@ main > .temp-week > .statistics > .uv-index > .sec-two-uv {
   align-content: space-between;
 }
 
-main > .temp-week > .statistics > .uv-index > .sec-two-uv > :nth-child(1) {
+main > .temp-week > .uv-index > .sec-two-uv > :nth-child(1) {
   width: 100%;
   height: 42px;
   color: var(--main-color);
@@ -442,23 +315,23 @@ main > .temp-week > .statistics > .uv-index > .sec-two-uv > :nth-child(1) {
   font-weight: bold;
 }
 
-main
-  > .temp-week
-  > .statistics
-  > .uv-index
-  > .sec-two-uv
-  > :nth-child(1)::first-letter {
+main > .temp-week > .uv-index > .sec-two-uv > :nth-child(1)::first-letter {
   font-size: 36px;
 }
 
-main > .temp-week > .statistics > .uv-index > .sec-two-uv > :nth-child(3) {
+main > .temp-week > .uv-index > .sec-two-uv > :nth-child(3) {
   width: 100%;
   height: 21px;
   font-size: 14px;
   text-align: center;
 }
 
-main > .temp-week > .statistics > .wind > .sec-two-wind {
+main > .temp-week > .wind,
+main > .temp-week > .map {
+  margin: 10px 0;
+}
+
+main > .temp-week > .wind > .sec-two-wind {
   width: 100%;
   height: 96px;
   display: flex;
@@ -466,7 +339,7 @@ main > .temp-week > .statistics > .wind > .sec-two-wind {
   align-items: flex-end;
 }
 
-main > .temp-week > .statistics > .wind > .sec-two-wind > .direction-wind {
+main > .temp-week > .wind > .sec-two-wind > .direction-wind {
   width: 90px;
   height: 90px;
   border: 1px solid var(--color-border);
@@ -474,46 +347,41 @@ main > .temp-week > .statistics > .wind > .sec-two-wind > .direction-wind {
   position: relative;
 }
 
-main > .temp-week > .statistics > .wind > .sec-two-wind span {
+main > .temp-week > .wind > .sec-two-wind span {
   font-size: 10px;
   opacity: 0.5;
   position: absolute;
 }
 
-main > .temp-week > .statistics > .wind > .sec-two-wind span:nth-child(1) {
+main > .temp-week > .wind > .sec-two-wind span:nth-child(1) {
   top: 5px;
   right: 50%;
   transform: translateX(50%);
 }
 
-main > .temp-week > .statistics > .wind > .sec-two-wind span:nth-child(2) {
+main > .temp-week > .wind > .sec-two-wind span:nth-child(2) {
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
 }
-main > .temp-week > .statistics > .wind > .sec-two-wind span:nth-child(3) {
+main > .temp-week > .wind > .sec-two-wind span:nth-child(3) {
   bottom: 5px;
   right: 50%;
   transform: translateX(50%);
 }
-main > .temp-week > .statistics > .wind > .sec-two-wind span:nth-child(4) {
+main > .temp-week > .wind > .sec-two-wind span:nth-child(4) {
   left: 5px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-main > .temp-week > .statistics > .wind > .sec-two-wind > .wind-details {
-  width: calc(100% - 120px);
+main > .temp-week > .wind > .sec-two-wind > .wind-details {
+  width: 160px;
   height: 65px;
+  display: grid;
 }
 
-main
-  > .temp-week
-  > .statistics
-  > .wind
-  > .sec-two-wind
-  > .wind-details
-  > div:nth-child(1) {
+main > .temp-week > .wind > .sec-two-wind > .wind-details > div:nth-child(1) {
   display: flex;
   flex-wrap: wrap;
   align-content: end;
@@ -522,7 +390,6 @@ main
 
 main
   > .temp-week
-  > .statistics
   > .wind
   > .sec-two-wind
   > .wind-details
@@ -539,7 +406,6 @@ main
 }
 main
   > .temp-week
-  > .statistics
   > .wind
   > .sec-two-wind
   > .wind-details
@@ -552,13 +418,7 @@ main
   width: 45px;
   height: 50px;
 }
-main
-  > .temp-week
-  > .statistics
-  > .wind
-  > .sec-two-wind
-  > .wind-details
-  > div:nth-child(2) {
+main > .temp-week > .wind > .sec-two-wind > .wind-details > div:nth-child(2) {
   width: 142px;
   height: 20px;
   display: flex;
@@ -567,19 +427,19 @@ main
   font-size: 14px;
 }
 
-main > .temp-week > .statistics > .schedule {
+main > .temp-week > .schedule {
   height: 212px;
 }
 
-main > .temp-week > .statistics > .schedule > :first-child {
+main > .temp-week > .schedule > :first-child {
   position: relative;
 }
-main > .temp-week > .statistics > .schedule > :first-child,
-main > .temp-week > .statistics > .schedule > :last-child {
+main > .temp-week > .schedule > :first-child,
+main > .temp-week > .schedule > :last-child {
   width: 100%;
 }
 /* //////////////////////////////////////////////////////////////// */
-main > .temp-week > .statistics > .schedule > :first-child::after {
+main > .temp-week > .schedule > :first-child::after {
   content: "";
   position: absolute;
   width: 80px;
@@ -614,11 +474,11 @@ main > .temp-week > .statistics > .schedule > :first-child::after {
   font-size: 12px;
   color: var(--main-color);
 }
-main > .temp-week > .statistics > .map {
+main > .temp-week > .map {
   width: 100%;
 }
 
-main > .temp-week > .statistics > .map img {
+main > .temp-week > .map img {
   width: 100%;
   height: 300px;
   border: 1px solid var(--color-border);

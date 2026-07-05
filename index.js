@@ -84,7 +84,7 @@ async function fetchWeatherData() {
   getWindElement.innerHTML = "";
   try {
     const fetchData = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=40dacc026d874cc1b46231019260805&q=Cairo&days=7`,
+      `https://api.weatherapi.com/v1/forecast.json?key=38e56d707e2349fd896200406260407&q=Cairo&days=7`,
     );
     const data = await fetchData.json();
     document.images[0].src = "https:" + data.current.condition.icon;
@@ -161,7 +161,7 @@ async function fetchWeatherData() {
       createElementimg.loading = "lazy";
       createElementimg.alt = "This Is Icon Of Temp";
       createElementIndicator.style.cssText =
-        "width: calc(100% - 120px); ;height: 6px; border-radius: 8px;background-color: #dfdddfef; position:relative";
+        "width: calc(100% - 120px); ;height: 12px; border-radius: 8px;background-color: #dfdddfef; position:relative";
       let min = data.forecast.forecastday[i].day.mintemp_c;
       let max = data.forecast.forecastday[i].day.maxtemp_c;
 
@@ -308,13 +308,14 @@ async function fetchWeatherData() {
     getWindElement.appendChild(createSpeedOfWind);
     getWindElement.appendChild(createDetailsOfWindSpeed);
     getSunRiseElement.innerHTML =
-      data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
+    data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
     getSunSetElement.innerHTML =
-      data.forecast.forecastday[0].astro.sunset.split(" ")[0];
+    data.forecast.forecastday[0].astro.sunset.split(" ")[0];
     getMoonRiseElement.innerHTML =
-      data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
+    data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
     getMoonSetElement.innerHTML =
-      data.forecast.forecastday[0].astro.moonset.split(" ")[0];
+    data.forecast.forecastday[0].astro.moonset.split(" ")[0];
+    console.log(data.forecast.forecastday.length);
     let year = new Date().getFullYear();
     getYearSpan.innerHTML = year;
   } catch (e) {

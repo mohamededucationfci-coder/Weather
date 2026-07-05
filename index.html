@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
     <meta name="description" content="Weather" />
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="./css/mobile.css" media="(max-width:480px)" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link
+      rel="stylesheet"
+      href="./css/smallscreen.css"
+      media="(max-width:480px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./css/mediumscreen.css"
+      media="(min-width:481px ) and ( max-width:800px)"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -89,89 +98,85 @@
 
       <!-- The Third Section -->
       <div class="temp-week hidden">
-        <!-- The First Section -->
-        <div class="day-forecast">
-          <div class="head">3-Day Forecast</div>
+        <!-- The first Section -->
+        <div class="head">7-Day Forecast</div>
+        <div class="day-forecast hidden">
           <div class="day-details"></div>
         </div>
-
-        <!-- The Second Section -->
-        <div class="statistics">
-          <div class="humidity hidden">
-            <div class="sec-one-humidity">
-              <div class="head-humidity">HUMIDITY</div>
-              <div class="icon">
-                <i class="fa-solid fa-droplet" aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="sec-two-humidity"></div>
-            <div class="sec-three-humidity"></div>
-          </div>
-          <div class="uv-index hidden">
-            <div class="sec-one-uv">
-              <div class="head-uv">UV INDEX</div>
-              <div class="icon">
-                <i class="fa-solid fa-sun" aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="sec-two-uv"></div>
-          </div>
-          <div class="wind hidden">
-            <div class="sec-one-wind">
-              <div class="head-wind">WIND</div>
-              <div class="icon">
-                <i class="fa-solid fa-wind" aaria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="sec-two-wind">
-              <div class="direction-wind">
-                <span>N</span>
-                <span>E</span>
-                <span>S</span>
-                <span>W</span>
-              </div>
-              <div class="wind-details"></div>
+        <div class="humidity hidden">
+          <div class="sec-one-humidity">
+            <div class="head-humidity">HUMIDITY</div>
+            <div class="icon">
+              <i class="fa-solid fa-droplet" aria-hidden="true"></i>
             </div>
           </div>
-          <div class="schedule hidden">
-            <div>
-              <div class="sun">
-                <div>SUN SCHEDULE</div>
-                <div><i class="fa-regular fa-sun" aria-hidden="true"></i></div>
-              </div>
-              <div class="rise-set">
-                <div>
-                  <div>SUNRISE</div>
-                  <div class="sunrise"></div>
-                </div>
-                <div>
-                  <div>SUNSET</div>
-                  <div class="sunset"></div>
-                </div>
-              </div>
+          <div class="sec-two-humidity"></div>
+          <div class="sec-three-humidity"></div>
+        </div>
+        <div class="uv-index hidden">
+          <div class="sec-one-uv">
+            <div class="head-uv">UV INDEX</div>
+            <div class="icon">
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
             </div>
-            <div>
-              <div class="moon">
-                <div>MOON SCHEDULE</div>
-                <div><i class="fa-regular fa-moon" aria-hidden="true"></i></div>
+          </div>
+          <div class="sec-two-uv"></div>
+        </div>
+        <div class="wind hidden">
+          <div class="sec-one-wind">
+            <div class="head-wind">WIND</div>
+            <div class="icon">
+              <i class="fa-solid fa-wind" aaria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="sec-two-wind">
+            <div class="direction-wind">
+              <span>N</span>
+              <span>E</span>
+              <span>S</span>
+              <span>W</span>
+            </div>
+            <div class="wind-details"></div>
+          </div>
+        </div>
+        <div class="schedule hidden">
+          <div>
+            <div class="sun">
+              <div>SUN SCHEDULE</div>
+              <div><i class="fa-regular fa-sun" aria-hidden="true"></i></div>
+            </div>
+            <div class="rise-set">
+              <div>
+                <div>SUNRISE</div>
+                <div class="sunrise"></div>
               </div>
-              <div class="rise-set">
-                <div>
-                  <div>MOONRISE</div>
-                  <div class="moonrise"></div>
-                </div>
-                <div>
-                  <div>MOONSET</div>
-                  <div class="moonset"></div>
-                </div>
+              <div>
+                <div>SUNSET</div>
+                <div class="sunset"></div>
               </div>
             </div>
           </div>
-          <div class="map hidden">
-            <a href="https://zoom.earth/places/egypt/cairo/"
-              ><img src="./649.jpg" alt="Weather Image" loading="lazy"
-            /></a>
+          <div>
+            <div class="moon">
+              <div>MOON SCHEDULE</div>
+              <div><i class="fa-regular fa-moon" aria-hidden="true"></i></div>
+            </div>
+            <div class="rise-set">
+              <div>
+                <div>MOONRISE</div>
+                <div class="moonrise"></div>
+              </div>
+              <div>
+                <div>MOONSET</div>
+                <div class="moonset"></div>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="map hidden">
+          <a href="https://zoom.earth/places/egypt/cairo/"
+            ><img src="./649.jpg" alt="Weather Image" loading="lazy"
+          /></a>
         </div>
       </div>
     </main>
