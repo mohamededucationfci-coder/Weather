@@ -308,7 +308,8 @@ async function fetchWeatherData(city) {
     getUVTwoElement.appendChild(createUvIndicator);
     getUVTwoElement.appendChild(createUvInfo);
     let windDegree = data.forecast.forecastday[0].hour[0].wind_degree;
-    let createArrow = document.createElement("span");
+    let createArrow = document.querySelector(".arrow")
+    getDirElement.lastChild.innerHTML = "";
     createArrow.style.cssText = `
       position: absolute;
       transform: translate(-50%, -50%) rotate(${windDegree}deg);
@@ -319,7 +320,6 @@ async function fetchWeatherData(city) {
       border-radius: 6px;
       background-image: linear-gradient(to top, #e9ddff, #4f378a);
     `;
-    getDirElement.appendChild(createArrow);
     let createSpeedOfWind = document.createElement("div");
     let createDetailsOfWindSpeed = document.createElement("div");
     createSpeedOfWind.innerHTML = `<div>${Math.trunc(data.forecast.forecastday[0].day.maxwind_kph)} </div><div> Km/h </div>`;
