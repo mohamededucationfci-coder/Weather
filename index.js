@@ -71,11 +71,33 @@ let getMoonSetElement = document.querySelector(".moonset");
 let getYearSpan = document.querySelector(".year");
 let getDirElement = document.querySelector(".direction-wind");
 const getElementBlur = document.querySelector(".load");
+const getValueInputSearch = document.querySelector("input[type='search']");
+const getButton = document.querySelector(".button-search");
 
 window.onload = function () {
   getElementBlur.style.display = "none";
+  localStorage.getItem("city");
+  if (localStorage.getItem("city") != null) {
+    fetchWeatherData(localStorage.getItem("city"));
+  } else {
+    fetchWeatherData("cairo");
+  }
 };
-async function fetchWeatherData() {
+
+getButton.onclick = function () {
+  let city;
+  if (getValueInputSearch.value === "") {
+    city = "Cairo";
+    window.localStorage.setItem("city", city);
+    fetchWeatherData(city);
+  } else {
+    city = getValueInputSearch.value;
+    window.localStorage.setItem("city", city);
+    fetchWeatherData(city);
+  }
+};
+
+async function fetchWeatherData(city) {
   getForecastElement.innerHTML = "";
   getCityElement.innerHTML = "";
   getDayDetailsElement.innerHTML = "";
@@ -84,7 +106,7 @@ async function fetchWeatherData() {
   getWindElement.innerHTML = "";
   try {
     const fetchData = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=38e56d707e2349fd896200406260407&q=Cairo&days=7`,
+      `https://api.weatherapi.com/v1/forecast.json?key=38e56d707e2349fd896200406260407&q=${city}&days=7`,
     );
     const data = await fetchData.json();
     document.images[0].src = "https:" + data.current.condition.icon;
@@ -262,7 +284,7 @@ async function fetchWeatherData() {
 
     createUvValue.innerHTML = `${Math.trunc(data.forecast.forecastday["0"].day.uv)} ${stateUV}`;
     createUvInfo.innerHTML = `Use sun protection until ${data.forecast.forecastday["0"].astro.sunset}`;
-    
+
     createUvInfo.classList.add("sec-three-uv");
     createUvIndicator.style.cssText = `
       width: 100%;
@@ -308,13 +330,13 @@ async function fetchWeatherData() {
     getWindElement.appendChild(createSpeedOfWind);
     getWindElement.appendChild(createDetailsOfWindSpeed);
     getSunRiseElement.innerHTML =
-    data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
+      data.forecast.forecastday[0].astro.sunrise.split(" ")[0];
     getSunSetElement.innerHTML =
-    data.forecast.forecastday[0].astro.sunset.split(" ")[0];
+      data.forecast.forecastday[0].astro.sunset.split(" ")[0];
     getMoonRiseElement.innerHTML =
-    data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
+      data.forecast.forecastday[0].astro.moonrise.split(" ")[0];
     getMoonSetElement.innerHTML =
-    data.forecast.forecastday[0].astro.moonset.split(" ")[0];
+      data.forecast.forecastday[0].astro.moonset.split(" ")[0];
     console.log(data.forecast.forecastday.length);
     let year = new Date().getFullYear();
     getYearSpan.innerHTML = year;
@@ -337,10 +359,6 @@ const observe = new IntersectionObserver((entreis) => {
 hiddenElements.forEach((ele) => {
   observe.observe(ele);
 });
-fetchWeatherData();
-setInterval(fetchWeatherData, 300000);
-document.querySelectorAll("*").forEach((el) => {
-  if (el.getBoundingClientRect().right > window.innerWidth) {
-    console.log(el);
-  }
-});
+setInterval(() => {
+  fetchWeatherData(localStorage.getItem("city"));
+}, 300000);

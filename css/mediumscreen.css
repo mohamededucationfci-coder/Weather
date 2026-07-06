@@ -205,7 +205,7 @@ main > .temp-week {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: 34px repeat(3, 260px);
   grid-template-areas: "head head" "day humidity" "uv wind" "schedule map";
-  gap: 5px;
+  gap: 8px;
   justify-content: center;
   align-content: space-between;
   color: var(--color-font);
