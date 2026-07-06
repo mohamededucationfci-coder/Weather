@@ -74,7 +74,7 @@ const getElementBlur = document.querySelector(".load");
 const getValueInputSearch = document.querySelector("input[type='search']");
 const getButton = document.querySelector(".button-search");
 
-window.onload = function () {
+window.addEventListener("load", function () {
   getElementBlur.style.display = "none";
   localStorage.getItem("city");
   if (localStorage.getItem("city") != null) {
@@ -82,20 +82,24 @@ window.onload = function () {
   } else {
     fetchWeatherData("cairo");
   }
-};
+});
 
-getButton.onclick = function () {
-  let city;
-  if (getValueInputSearch.value === "") {
-    city = "Cairo";
-    window.localStorage.setItem("city", city);
-    fetchWeatherData(city);
-  } else {
-    city = getValueInputSearch.value;
-    window.localStorage.setItem("city", city);
-    fetchWeatherData(city);
+window.addEventListener("keyup", function (e) {
+  if (e.key === "Enter") {
+    let city;
+    if (getValueInputSearch.value === "") {
+      city = "Cairo";
+      window.localStorage.setItem("city", city);
+      fetchWeatherData(city);
+    } else {
+      city = getValueInputSearch.value;
+      window.localStorage.setItem("city", city);
+      fetchWeatherData(city);
+    }
   }
-};
+});
+
+
 
 async function fetchWeatherData(city) {
   getForecastElement.innerHTML = "";
@@ -217,7 +221,7 @@ async function fetchWeatherData(city) {
     let createAvghumidityElement = document.createElement("div");
     createAvghumidityInfo.innerHTML =
       data.forecast.forecastday[0].day.avghumidity + "%";
-      createAvghumidityInfo.style.color
+    createAvghumidityInfo.style.color;
 
     createAvghumidityElement.style.cssText = `
       width: 100%;
@@ -308,7 +312,7 @@ async function fetchWeatherData(city) {
     getUVTwoElement.appendChild(createUvIndicator);
     getUVTwoElement.appendChild(createUvInfo);
     let windDegree = data.forecast.forecastday[0].hour[0].wind_degree;
-    let createArrow = document.querySelector(".arrow")
+    let createArrow = document.querySelector(".arrow");
     getDirElement.lastChild.innerHTML = "";
     createArrow.style.cssText = `
       position: absolute;
