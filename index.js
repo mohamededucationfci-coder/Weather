@@ -113,9 +113,7 @@ async function fetchWeatherData(city) {
     ((getCityElement.innerHTML = ` ${data.location.name}, ${data.location.country}`),
       (getTemperatureElement.innerHTML =
         Math.trunc(data.current.temp_c) + `<span>°C</span>`));
-    document.images[1].src = "https:" + data.current.condition.icon;
-    document.images[1].loading = "lazy";
-    document.images[1].alt = "This Is Icon Of Weather";
+
     getHumidityPercentElement.innerHTML =
       data.current.humidity + `<div>%</div>`;
     getWindSpeedElement.innerHTML = data.current.wind_kph + ` <div>Km/h</div>`;
