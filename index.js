@@ -72,7 +72,6 @@ let getYearSpan = document.querySelector(".year");
 let getDirElement = document.querySelector(".direction-wind");
 const getElementBlur = document.querySelector(".load");
 const getValueInputSearch = document.querySelector("input[type='search']");
-const getButton = document.querySelector(".button-search");
 
 window.addEventListener("load", function () {
   getElementBlur.style.display = "none";
@@ -84,7 +83,7 @@ window.addEventListener("load", function () {
   }
 });
 
-window.addEventListener("keyup", function (e) {
+window.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     let city;
     if (getValueInputSearch.value === "") {
