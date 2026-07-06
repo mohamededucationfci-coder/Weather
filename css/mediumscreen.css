@@ -298,6 +298,10 @@ main > .temp-week > .humidity > .sec-two-humidity {
   align-content: space-evenly;
 }
 
+main > .temp-week > .humidity > .sec-two-humidity > div:nth-child(2){
+  color: var(--secondary-backgroundColor);
+}
+
 main > .temp-week > .uv-index {
   grid-area: uv;
 }

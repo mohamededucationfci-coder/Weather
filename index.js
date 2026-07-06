@@ -217,11 +217,12 @@ async function fetchWeatherData(city) {
     let createAvghumidityElement = document.createElement("div");
     createAvghumidityInfo.innerHTML =
       data.forecast.forecastday[0].day.avghumidity + "%";
+      createAvghumidityInfo.style.color
 
     createAvghumidityElement.style.cssText = `
       width: 100%;
       height: 12px;
-      background-color: #2200458f;
+      background-color: #eee;
       border-radius: 8px;
       position: relative;
       display: flex;
@@ -239,7 +240,6 @@ async function fetchWeatherData(city) {
     createAvghumidityInfo.style.cssText = `
       font-size: 24px;
       font-weight: bold;
-      color: #3b2a68;
       width: 100%;
       height: 30px;
       display: flex;
