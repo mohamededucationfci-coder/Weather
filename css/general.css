@@ -82,11 +82,11 @@ header > .hero {
   height: 40px;
   display: flex;
   flex-wrap: wrap;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
 }
 
-header > .search  {
+header > .search {
   height: 30px;
   width: 40%;
   display: flex;
@@ -103,8 +103,6 @@ header > .search > input {
   padding-left: 10px;
   outline: none;
 }
-
-
 
 header > .search > input::placeholder {
   font-size: 16px;

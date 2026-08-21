@@ -98,8 +98,6 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-
-
 async function fetchWeatherData(city) {
   getForecastElement.innerHTML = "";
   getCityElement.innerHTML = "";
