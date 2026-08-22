@@ -107,7 +107,7 @@ async function fetchWeatherData(city) {
   getWindElement.innerHTML = "";
   try {
     const fetchData = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=38e56d707e2349fd896200406260407&q=${city}&days=7`,
+      `https://api.weatherapi.com/v1/forecast.json?key=c5ac0e6d85b24f6394601824262208&q=${city}&days=7`,
     );
     const data = await fetchData.json();
     document.images[0].src = "https:" + data.current.condition.icon;
