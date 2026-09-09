@@ -151,6 +151,8 @@ header .hero .toggle > div i {
   z-index: 100;
   display: none;
   border: none;
+  text-align: center;
+  line-height: 40px;
 }
 
 main {
