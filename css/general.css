@@ -94,7 +94,7 @@ header > .hero {
 
 header > .search {
   height: 40px;
-  width: 40%;
+  width: 60%;
 }
 
 header > .search > input {
@@ -162,6 +162,15 @@ main {
   justify-content: center;
 }
 
+main .uv-index:hover,
+main .day-forecast:hover,
+main .humidity:hover,
+main .wind:hover,
+main .map:hover,
+main .schedule:hover {
+  transform: scale(1.05);
+}
+
 main > .temp-today {
   background-color: var(--backgroundColor);
   width: 100%;
@@ -173,12 +182,10 @@ main > .temp-today {
   position: relative;
   border-radius: 15px;
 }
-
 main > .temp-today > :first-child {
   color: var(--main-color);
   text-align: center;
 }
-
 main > .temp-today > :first-child .city {
   width: 100%;
   height: 34px;
@@ -191,11 +198,9 @@ main > .temp-today > :first-child .city {
   align-items: center;
   color: var(--main-color);
 }
-
 main > .temp-today > :first-child .city i {
   font-size: 20px;
 }
-
 main > .temp-today > :first-child .temperature {
   font-family: "DM Sans", sans-serif;
   width: 100%;
@@ -206,7 +211,6 @@ main > .temp-today > :first-child .temperature {
   justify-content: center;
   align-content: center;
 }
-
 main > .temp-today > :first-child .temperature::first-letter,
 main > .temp-today > :first-child .temperature span {
   font-family: "DM Sans", sans-serif;
@@ -215,23 +219,19 @@ main > .temp-today > :first-child .temperature span {
   display: flex;
   align-items: end;
 }
-
 main > .temp-today > :first-child .temperature span {
   opacity: 0.4;
 }
-
 main > .temp-today > :nth-child(2) {
   position: relative;
   display: flex;
   justify-content: center;
 }
-
 main > .temp-today > :nth-child(2) img {
   width: 300px;
   height: 300px;
   display: grid;
 }
-
 main > .temp-today > .temp-info {
   background-color: var(--backgroundColorOdInfo);
   width: 100%;
@@ -243,23 +243,17 @@ main > .temp-today > .temp-info {
   border-radius: 0 0px 15px 15px;
   bottom: 0;
 }
-
 main > .temp-today > :nth-child(3) > div {
   height: 40px;
   text-align: center;
 }
-
 main > .temp-today > :nth-child(3) > div > :first-child {
   opacity: 0.9;
 }
-
 main > .temp-today > :nth-child(3) > div > :last-child {
   opacity: 1;
   color: var(--main-color);
-}
-
-/* The Second Section */
-
+} /* The Second Section */
 main > .temp-today-details {
   width: 100%;
   height: 262.01px;
@@ -268,25 +262,21 @@ main > .temp-today-details {
   flex-wrap: wrap;
   color: var(--color-font);
 }
-
 main > .temp-today-details > .head {
   width: 100%;
   height: 34px;
   font-size: 24px;
   font-weight: bold;
 }
-
 main > .temp-today-details > .forecast {
   width: 100%;
   height: 204px;
   display: flex;
   overflow: auto;
 }
-
 main > .temp-today-details > .forecast::-webkit-scrollbar {
   display: none;
 }
-
 main > .temp-today-details > .forecast > div {
   background-color: var(--secondary-backgroundColor);
   min-width: 110px;
@@ -299,11 +289,9 @@ main > .temp-today-details > .forecast > div {
   justify-content: center;
   align-content: space-between;
 }
-
 main > .temp-today-details > .forecast > div:not(:first-child) {
   margin-left: 10px;
 }
-
 main > .temp-today-details > .forecast > div :nth-child(1) {
   font-family: "Nunito Sans", sans-serif;
   width: 50px;
@@ -311,10 +299,7 @@ main > .temp-today-details > .forecast > div :nth-child(1) {
   font-size: 15px;
   font-weight: bold;
   text-align: center;
-}
-
-/* The Third Section */
-
+} /* The Third Section */
 main > .temp-week {
   width: 100%;
   height: auto;
@@ -322,16 +307,13 @@ main > .temp-week {
   align-content: space-between;
   color: var(--color-font);
 }
-
 main > .temp-week > .day-forecast {
   height: auto;
 }
-
 main > .temp-week > .head {
   font-size: 24px;
   font-weight: bold;
 }
-
 main > .temp-week > .day-forecast > .day-details {
   background-color: var(--secondary-backgroundColor);
   border: 1px solid var(--color-border);
@@ -340,7 +322,6 @@ main > .temp-week > .day-forecast > .day-details {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 main > .temp-week > .day-forecast > .day-details > div {
   width: 100%;
   height: 40px;
@@ -348,12 +329,10 @@ main > .temp-week > .day-forecast > .day-details > div {
   justify-content: space-between;
   align-items: center;
 }
-
 main > .temp-week > .day-forecast > .day-details > div > img {
   width: 20px;
   height: 20px;
 }
-
 main > .temp-week > .humidity,
 main > .temp-week > .uv-index,
 main > .temp-week > .wind,
@@ -366,7 +345,6 @@ main > .temp-week > .schedule {
   align-content: space-between;
   color: var(--color-font);
 }
-
 main > .temp-week > .humidity > .sec-one-humidity,
 main > .temp-week > .uv-index > .sec-one-uv,
 main > .temp-week .sun,
@@ -378,15 +356,12 @@ main > .temp-week > .wind > .sec-one-wind {
   justify-content: space-between;
   align-items: start;
 }
-
 main > .temp-week > .humidity > .sec-one-humidity i {
   color: blue;
 }
-
 main > .temp-week > .uv-index > .sec-one-uv > i {
   color: #f4b400;
 }
-
 main > .temp-week > .humidity > .sec-two-humidity {
   width: 100%;
   height: 80px;
@@ -395,7 +370,6 @@ main > .temp-week > .humidity > .sec-two-humidity {
   justify-content: center;
   align-content: space-evenly;
 }
-
 main > .temp-week > .uv-index > .sec-two-uv {
   width: 100%;
   height: 123px;
@@ -403,7 +377,6 @@ main > .temp-week > .uv-index > .sec-two-uv {
   flex-wrap: wrap;
   align-content: space-between;
 }
-
 main > .temp-week > .uv-index > .sec-two-uv > :nth-child(1) {
   width: 100%;
   height: 42px;
@@ -412,18 +385,15 @@ main > .temp-week > .uv-index > .sec-two-uv > :nth-child(1) {
   font-size: 18px;
   font-weight: bold;
 }
-
 main > .temp-week > .uv-index > .sec-two-uv > :nth-child(1)::first-letter {
   font-size: 36px;
 }
-
 main > .temp-week > .uv-index > .sec-two-uv > :nth-child(3) {
   width: 100%;
   height: 21px;
   font-size: 14px;
   text-align: center;
 }
-
 main > .temp-week > .wind > .sec-two-wind {
   width: 100%;
   height: 96px;
@@ -431,55 +401,46 @@ main > .temp-week > .wind > .sec-two-wind {
   justify-content: space-between;
   align-items: flex-end;
 }
-
 main > .temp-week > .wind > .sec-two-wind > .direction-wind {
   border: 1px solid var(--color-border);
   border-radius: 50%;
   position: relative;
 }
-
 main > .temp-week > .wind > .sec-two-wind span {
   font-size: 10px;
   opacity: 0.5;
   position: absolute;
 }
-
 main > .temp-week > .wind > .sec-two-wind span:nth-child(1) {
   top: 5px;
   right: 50%;
   transform: translateX(50%);
 }
-
 main > .temp-week > .wind > .sec-two-wind span:nth-child(2) {
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
 }
-
 main > .temp-week > .wind > .sec-two-wind span:nth-child(3) {
   bottom: 5px;
   right: 50%;
   transform: translateX(50%);
 }
-
 main > .temp-week > .wind > .sec-two-wind span:nth-child(4) {
   left: 5px;
   top: 50%;
   transform: translateY(-50%);
 }
-
 main > .temp-week > .wind > .sec-two-wind > .wind-details {
   height: 65px;
   display: grid;
 }
-
 main > .temp-week > .wind > .sec-two-wind > .wind-details > div:nth-child(1) {
   display: flex;
   flex-wrap: wrap;
   align-content: end;
   height: 50px;
 }
-
 main
   > .temp-week
   > .wind
@@ -496,7 +457,6 @@ main
   position: relative;
   top: -10px;
 }
-
 main
   > .temp-week
   > .wind
@@ -511,7 +471,6 @@ main
   width: 45px;
   height: 50px;
 }
-
 main > .temp-week > .wind > .sec-two-wind > .wind-details > div:nth-child(2) {
   width: 142px;
   height: 20px;
@@ -520,16 +479,13 @@ main > .temp-week > .wind > .sec-two-wind > .wind-details > div:nth-child(2) {
   opacity: 0.5;
   font-size: 14px;
 }
-
 main > .temp-week > .schedule > :first-child {
   position: relative;
 }
-
 main > .temp-week > .schedule > :first-child,
 main > .temp-week > .schedule > :last-child {
   width: 100%;
 }
-
 main > .temp-week > .schedule > :first-child::after {
   content: "";
   position: absolute;
@@ -539,14 +495,12 @@ main > .temp-week > .schedule > :first-child::after {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .moon > div:nth-child(2),
 .sun > div:nth-child(2),
 .rise-set > div:nth-child(2) {
   width: 50px;
   text-align: start;
 }
-
 .rise-set {
   width: 100%;
   height: 40px;
@@ -554,25 +508,21 @@ main > .temp-week > .schedule > :first-child::after {
   justify-content: space-between;
   align-items: center;
 }
-
 .rise-set > div:nth-child(1) > :first-child,
 .rise-set > div:nth-child(2) > :first-child {
   font-size: 10px;
 }
-
 .rise-set > div:nth-child(1) > :last-child,
 .rise-set > div:nth-child(2) > :last-child {
   font-size: 12px;
   color: var(--main-color);
 }
-
 main > .temp-week > .map img {
   width: 100%;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   opacity: 0.4;
 }
-
 footer {
   grid-area: footer;
   background-color: var(--secondary-backgroundColor);
@@ -584,21 +534,18 @@ footer {
   color: var(--color-font);
   text-align: center;
 }
-
 footer > .sec-one {
   width: 100%;
   height: 20px;
   display: flex;
   justify-content: space-between;
 }
-
 footer > .sec-one .name {
   height: 20px;
   font-weight: bold;
   font-size: 18px;
   width: 100px;
 }
-
 footer > .sec-one > :last-child {
   width: fit-content;
   height: 20px;
@@ -606,13 +553,11 @@ footer > .sec-one > :last-child {
   display: flex;
   justify-content: space-between;
 }
-
 footer > .copyright {
   width: 100%;
   text-align: center;
   font-size: 12px;
 }
-
 footer > .links {
   display: flex;
   justify-content: space-between;
@@ -621,16 +566,13 @@ footer > .links {
   margin: auto;
   align-items: center;
 }
-
 footer > .links i {
   font-size: 20px;
 }
-
 .hidden {
   opacity: 0;
   transform: translateY(50px);
 }
-
 .show {
   opacity: 1;
   transform: translateY(0);
